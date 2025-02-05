@@ -12,7 +12,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Keep-alive configuration
 PING_INTERVAL = 840  # 14 minutes (less than Render's 15-minute limit)
-APP_URL = "YOUR_RENDER_URL_HERE"  # You'll add this after deploying
+APP_URL = os.environ.get('RENDER_EXTERNAL_URL', 'http://localhost:8000')
 
 def keep_alive():
     """Ping the application periodically to prevent it from sleeping"""
